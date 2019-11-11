@@ -1,5 +1,6 @@
 ﻿
 @{
+    @model List<SkiLand.Domain.Models.Hotel>
     ViewData["Title"] = "Готелі";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -106,12 +107,13 @@
             <div class="col">
                 <div class="items item_grid clearfix">
 
-                    <!-- Item -->
+                    @foreach (var hotel in Model)
+                    {
                     <div class="item clearfix rating_5">
                         <div class="item_image"><img src="images/hotel1.jpg" alt=""></div>
                         <div class="item_content">
                             <div class="item_price">From $890</div>
-                            <div class="item_title">Paris, France</div>
+                            <div class="item_title">@hotel.Name</div>
                             <ul>
                                 <li>1 person</li>
                                 <li>4 nights</li>
@@ -124,33 +126,12 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                            <div class="item_text">@hotel.Description</div>
                             <div class="item_more_link"><a href="#">Read More</a></div>
                         </div>
                     </div>
+                    }
 
-                    <!-- Item -->
-                    <div class="item clearfix rating_5">
-                        <div class="item_image"><img src="images/hotel1.jpg" alt=""></div>
-                        <div class="item_content">
-                            <div class="item_price">From $890</div>
-                            <div class="item_title">Paris, France</div>
-                            <ul>
-                                <li>1 person</li>
-                                <li>4 nights</li>
-                                <li>3 star hotel</li>
-                            </ul>
-                            <div class="rating rating_5" data-rating="5">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
-                            <div class="item_more_link"><a href="#">Read More</a></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SkiLand.DAL.DdContext;
+using SkiLand.DAL.Repositories;
+using SkiLand.Domain.Repositories;
 using SkiLand.Domain.Services;
 using SkiLand.Web.Models;
 
@@ -82,7 +84,7 @@ namespace SkiLand.Web
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-
+            services.AddTransient<IHotelRepository, HotelRepository>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

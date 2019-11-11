@@ -1,14 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SkiLand.Domain.Repositories;
+using System.Threading.Tasks;
 
 namespace SkiLand.Web.Controllers
 {
     [Route("Hotels")]
     public class HotelController : Controller
     {
-        // GET: Hotel
-        public ActionResult Index()
+        private readonly IHotelRepository _repository;
+        public HotelController(IHotelRepository repository)
         {
-            return View();
+            _repository = repository;
+        }
+        // GET: Hotel
+        public async Task <ActionResult> Index()
+        {
+            return View(await _repository.FindAll());
         }
     }
 }
